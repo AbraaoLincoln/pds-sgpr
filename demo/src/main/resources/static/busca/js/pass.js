@@ -65,7 +65,8 @@ function createPassElement(passInfo){
     let btnComprar = document.createElement('BUTTON');
     btnComprar.type = 'button';
     btnComprar.className = 'btnPass';
-    btnComprar.innerText = 'Comprar';
+    btnComprar.innerText = 'Agendar';
+    btnComprar.addEventListener("click", agendarPassagem, false); //where func is your function name
 
     precoContainer.appendChild(spanPreco);
     precoContainer.appendChild(btnComprar);
@@ -110,4 +111,7 @@ function createFakePassContainer(){
     container.style.visibility = 'hidden';
 
     return container;
+}
+function agendarPassagem(){
+    window.location.href = "http://localhost:8080/login/login.html";
 }

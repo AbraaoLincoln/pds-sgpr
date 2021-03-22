@@ -11,17 +11,23 @@
 <body>
     <div class="backForms">
         <h2>SGPR</h2>
-        <form method="POST" action="/login">
+        <form id="form-login">
             <input id="username" name="username" type="text" placeholder="nome de usuario">
             <input name="password" type="password" placeholder="senha">
-            <button id="logar" type="submit" class="btnLogin">Entrar</button>
+            <a id="logar" href="http://localhost:8080/admin/" class="btnLogin">Entrar</a>
         </form>
         <button type="button" class="btnLogin btnJoin">Criar Conta</button>
     </div>
 </body>
 <script>
+$("form-login").submit(function(event){
+	event.preventDefault();
+	window.location.replace = "http://localhost:8080/admin/";
+	console.log("submit");
+});
 $("#logar").click(function(){
-    $("form").submit();
+    window.location.replace = "http://localhost:8080/admin/";
+	console.log("botão");
 });
 
 </script>

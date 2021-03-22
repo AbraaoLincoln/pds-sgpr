@@ -61,11 +61,18 @@ function createPassElement(passInfo){
     let spanPreco = document.createElement('SPAN');
     spanPreco.innerText = 'R$ ' + passInfo.preco;
 
-    //create buttons
+    
+	let inputId= document.createElement('INPUT');
+	inputId.type = 'hidden';
+	inputId.value=passInfo.id;
+	
+	//create buttons
     let btnComprar = document.createElement('BUTTON');
     btnComprar.type = 'button';
     btnComprar.className = 'btnPass';
-    btnComprar.innerText = 'Comprar';
+	btnComprar.id=passInfo.id;
+    btnComprar.innerText = 'Agendar';
+	btnComprar.addEventListener("click", agendarPassagem, false);
 
     precoContainer.appendChild(spanPreco);
     precoContainer.appendChild(btnComprar);
@@ -190,4 +197,23 @@ function createPassCol(infoName, infoValue, infoValue2) {
     divPassCol.appendChild(spanInfoValue);
 
     return divPassCol;
+}
+async function agendarPassagem(){
+	console.log(this.id);
+	
+	let passagem ={}
+	passagem['viagem']=parseInt(this.id);
+	passagem['numAssento']= 4;
+	passagem['cpf']= "40811470784";
+	passagem['codValidacao']="156";
+	
+	console.log(passagem);
+	let res = await postResource("http://localhost:8080/passagens/", passagem);
+	var div = this.closest(".rowSearchResponse");
+	div.innerHTML="";
+	if(res.status == "Error") {
+        alert(res.erros);
+    }else {
+        alert("Passagem cadastrada");
+    }
 }

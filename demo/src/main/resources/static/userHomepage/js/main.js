@@ -87,6 +87,7 @@ async function startBusca(){
             viagensSerach = await getResource(`http://localhost:8080/viagem/busca?origem=${org}&destino=${des}`);
         }else {
             viagensSerach = await getResource(`http://localhost:8080/viagem/busca?origem=${org}`);
+			console.log(viagensSerach);
         }
         // viagens = getFakeResponse();
 
@@ -116,12 +117,13 @@ function loadWaringNotFoundViagens(){
 }
 
 async function deletePass(event) {
+	console.log();
     let passId = event.target.parentNode.parentNode.children[0].innerText;
     let res = await deletePassOnDB(passId);
-    console.log(res);
     if(res.status == "Error") {
         alert(res.erros);
     }else {
+		this.closest(".listOfPass-row").innerHTML="";
         alert("Passagem Cancelada");
     }
 }
