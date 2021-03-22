@@ -24,7 +24,7 @@ async function createTableUsers(){
 
 async function createTableBus(){
     page = 2;
-    // globalResouces.main = await getResources("http://localhost:8080/viagens");
+    globalResouces.main = await getResources("http://localhost:8080/onibus");
     let headers = Object.keys(globalResouces.main[0]);
 
     //load table onibus
@@ -49,9 +49,9 @@ async function createTableViagem(){
     hideWarnig();
 }
 
-function createTableMotorista(){
+async function createTableMotorista(){
     page = 5;
-    globalResouces.main = getFakeMotoristas();
+    globalResouces.main = await getResources("http://localhost:8080/motorista");
     let headers = Object.keys(globalResouces.main[0]);
 
     //load table motorista
@@ -126,6 +126,15 @@ function hideWarnig(){
 
 async function addResource(event){
     switch(page){
+    	case 2: 
+    		let resOnibus = await postResource('http://localhost:8080/onibus', buildJSO(event.target.parentNode.id));
+            if(resOnibus.status == "Error") {
+                alert(resOnibus.erros);
+            }else{
+            	alert('Ônibus cadastrado.');
+            	createTableBus();
+            }
+            break;	
         case 3:
             let newRoute = createRotaToPost(event.target.parentNode.id);
 
@@ -146,6 +155,15 @@ async function addResource(event){
             let res = await postResource('http://localhost:8080/viagem', buildJSO(event.target.parentNode.id));
             if(res.status == "Error") {
                 alert(res.erros);
+            }
+            break;
+        case 5: 
+            let resMotorista = await postResource('http://localhost:8080/motorista', buildJSO(event.target.parentNode.id));
+            if(resMotorista.status == "Error") {
+                alert(resMotorista.erros);
+            }else{
+            	alert('Motorista cadastrado.');
+            	createTableMotorista();
             }
             break;
         case 6:
@@ -201,6 +219,9 @@ async function dltResource(){
     console.log(globalResouces.id); 
     let res = "";
     switch(page){
+    	case 2:
+            res = await deleteResource(`http://localhost:8080/onibus/${globalResouces.id}`);
+            break;
         case 3:
             res = await deleteResource(`http://localhost:8080/rota/${globalResouces.id}`);
             break;
@@ -210,6 +231,9 @@ async function dltResource(){
         case 41:
             res = await deleteResource(`http://localhost:8080/passagens/${globalResouces.id}`);
             break;
+		case 5:
+			res = await deleteResource(`http://localhost:8080/motorista/${globalResouces.id}`);
+			break;
         case 6:
             res = await deleteResource(`http://localhost:8080/cidades/${globalResouces.id}`);
             break;
