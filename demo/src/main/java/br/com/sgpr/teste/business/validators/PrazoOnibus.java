@@ -21,7 +21,6 @@ public class PrazoOnibus implements PrazoStrategy{
     @Override
     public void validate(TempPassagem pass) throws BusinessExceptions {
         ArrayList<String> listOfErros = new ArrayList<>();
-        System.out.println("teste");
         Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
         LocalDate viagemDate = LocalDate.parse(viagem.getData());
         LocalDate today = LocalDate.now();

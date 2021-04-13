@@ -89,8 +89,8 @@ PUT http://localhost:8080/passagens/validate
 Content-Type: application/json
 
 {
-    "viagem": "5",
-    "codValidacao": "10"
+    "viagem": "2",
+    "codValidacao": "6"
 }
 ###
 

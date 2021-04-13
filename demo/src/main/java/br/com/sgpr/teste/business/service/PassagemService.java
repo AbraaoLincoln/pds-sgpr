@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.sgpr.teste.business.entity.PassagemUsada;
 import br.com.sgpr.teste.business.entity.visoes.VisaoPassagens;
 import br.com.sgpr.teste.business.entity.TempPassagem;
 import br.com.sgpr.teste.business.entity.Viagem;
@@ -14,7 +13,6 @@ import br.com.sgpr.teste.business.service.interfaces.AfterCancelStrategy;
 import br.com.sgpr.teste.business.service.interfaces.AfterCheckInStrategy;
 import br.com.sgpr.teste.business.service.interfaces.CheckInStrategy;
 import br.com.sgpr.teste.business.service.interfaces.PrazoStrategy;
-import br.com.sgpr.teste.data.PassagemUsadaRepository;
 import br.com.sgpr.teste.data.PassagensViagemsRepository;
 import br.com.sgpr.teste.data.TempPassagemRepository;
 import br.com.sgpr.teste.data.ViagemRepository;
@@ -25,8 +23,6 @@ public class PassagemService {
     private PassagensViagemsRepository passagensViagensRepository;
     @Autowired
     private TempPassagemRepository passagemRepository;
-    @Autowired
-    private PassagemUsadaRepository passagemUsadaRepository;
     @Autowired
     private ViagemRepository viagemRepository;
     //Strategy
@@ -86,8 +82,8 @@ public class PassagemService {
             throw new Exception("Passagem Inválida");
         }else{
             checkInValidator.validade(pass);
-            passagemRepository.deleteById(passToValidate.getCodValidacao());
-            afterCheckIn.execute(pass);
+            // passagemRepository.deleteById(passToValidate.getCodValidacao());
+            // afterCheckIn.execute(pass);
         }
     }
 
