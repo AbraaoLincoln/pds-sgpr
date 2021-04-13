@@ -9,7 +9,7 @@ import br.com.sgpr.teste.business.service.interfaces.AfterCheckInStrategy;
 import br.com.sgpr.teste.data.PassagemUsadaRepository;
 
 @Component
-public class AfterCheckIn implements AfterCheckInStrategy{
+public class AfterCheckInOnibus implements AfterCheckInStrategy{
     @Autowired
     private PassagemUsadaRepository passagemUsadaRepository;
 

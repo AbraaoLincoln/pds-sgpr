@@ -42,7 +42,11 @@ public class PassagensController {
             return new Mensagem("Passagem Cancelada");
         } catch (BusinessExceptions e) {
             Mensagem msg = new Mensagem("Error");
-            msg.addErro(e.getMessage());
+            if(e.getListOfMenssagens() == null) {
+                msg.addErro(e.getMessage());
+            }else {
+                msg.setErros(e.getListOfMenssagens());
+            }
             return msg;
         }
     }

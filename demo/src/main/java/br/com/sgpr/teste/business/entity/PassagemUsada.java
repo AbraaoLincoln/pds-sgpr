@@ -12,6 +12,7 @@ public class PassagemUsada {
     private int viagem;
     private int numAssento;
     private String cpf;
+    private String horaCancelamento;
 
     public PassagemUsada() {}
 
@@ -57,6 +58,14 @@ public class PassagemUsada {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getHoraCancelamento() {
+        return horaCancelamento;
+    }
+
+    public void setHoraCancelamento(String horaCancelamento) {
+        this.horaCancelamento = horaCancelamento;
     }
     
 }

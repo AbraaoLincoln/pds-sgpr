@@ -24,7 +24,7 @@ public class PrazoOnibus implements PrazoStrategy{
         Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
         LocalDate viagemDate = LocalDate.parse(viagem.getData());
         LocalDate today = LocalDate.now();
-            
+
         if(today.isBefore(viagemDate)) {
             String mouth = viagemDate.getMonthValue() > 9 ? "" + viagemDate.getMonthValue() : "0" + viagemDate.getMonthValue();
             LocalDate dayBeforeViagem = LocalDate.parse(viagemDate.getYear() + "-" + mouth + "-" + (viagemDate.getDayOfMonth() - 1));
@@ -32,10 +32,8 @@ public class PrazoOnibus implements PrazoStrategy{
             if(today.isEqual(dayBeforeViagem)) {
                 LocalTime timeNow = LocalTime.now();
                 LocalTime horaSiadaViagem = LocalTime.parse(viagem.getHoraSaida());
-
-                int timeNowInt = (timeNow.getHour() * 100) + timeNow.getMinute();
-                int horaSiadaViagemInt = (horaSiadaViagem.getHour() * 100) + horaSiadaViagem.getMinute();
-                if((timeNowInt - horaSiadaViagemInt) > 0) {
+                
+                if(timeNow.isAfter(horaSiadaViagem)) {
                     listOfErros.add("Passagem não pode ser cancelada, menos de 24h para a viagem.");   
                 }
             }
