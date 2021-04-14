@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Homepage</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../all.css">
+    <script src="./js/fakeApi.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/dbOperations.js"></script>
+    <script src="./js/pass.js"></script>
+    <script src="./js/table.js"></script>
+</head>
+<body>
+    <header>
+        <span>SGPR</span>
+        <div class="backTripsMenu">
+            <nav class="tripsMenu">
+                <i class="fas fa-calendar-day fa-2x" onclick="loadPassPage()"></i>
+                <i class="fas fa-calendar-week fa-2x" onclick="loadlistOfPassPage()"></i>
+                <i class="fas fa-search fa-2x" onclick="loadSearchPage()"></i>
+            </nav>
+        </div>
+        <div class="userMenu">
+            <div class="backImgUser" onclick="testeMenu()">
+                <img src="../imgs/user.png" alt="foto do usuario logado">
+            </div>
+            <nav id="dropMenu">
+                <button type="button">Perfil</button>
+                <button type="button">Sair</button>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="listOfPass" id="passPage">
+            
+        </div>
+
+        <!-- Lista de passagem -->
+        <div class="backPassList" id="tableOfDivs">
+            <div class="listOfPass-row">
+                <span class="listOfPass-span listOfPass-divBtn">CPF</span>
+                <span class="listOfPass-span listOfPass-divBtn">Origem</span>
+                <span class="listOfPass-span listOfPass-divBtn">Destino</span>
+                <span class="listOfPass-span listOfPass-divBtn">Data</span>
+                <span class="listOfPass-span listOfPass-divBtn">Cancelar Viagem</span>
+            </div>
+            <div class="listOfPass-row">
+                <span class="listOfPass-span listOfPass-divBtn">12345678901</span>
+                <span class="listOfPass-span listOfPass-divBtn">Mossoro</span>
+                <span class="listOfPass-span listOfPass-divBtn">Macau</span>
+                <span class="listOfPass-span listOfPass-divBtn">2021-03-12</span>
+                <div class="listOfPass-span listOfPass-divBtn">
+                    <button type="button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Formulario da Pesquisa -->
+        <div class="backForm" id="bkForms">
+            <div class="formContainer" id="searchMenu">
+                <form action="POST" class="forms">
+                    <input type="text" class="formsInput" placeholder="De" id="origem">
+                    <input type="text" class="formsInput" placeholder="Para" id="destino">
+                    <input type="text" class="formsInput" placeholder="Dia" id="data" disabled>
+                    <input type="text" class="formsInput" placeholder="Hora de Saida" id="hora" disabled>
+                    <input type="text" class="formsInput" placeholder="Preço" id="preco" disabled>
+                </form>
+                <div class="divBtnSearch">
+                    <button type="button" class="btnSearch" onclick="startBusca()">Pesquisar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultado da Pesquisa -->
+        <div class="backTrips" id="bkTrips">
+        </div>
+    </main>
+</body>
+</html>

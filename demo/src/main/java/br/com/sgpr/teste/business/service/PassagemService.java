@@ -11,7 +11,9 @@ import br.com.sgpr.teste.business.entity.Viagem;
 import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
 import br.com.sgpr.teste.business.service.interfaces.AfterCancelStrategy;
 import br.com.sgpr.teste.business.service.interfaces.AfterCheckInStrategy;
+import br.com.sgpr.teste.business.service.interfaces.AfterCreateStrategy;
 import br.com.sgpr.teste.business.service.interfaces.CheckInStrategy;
+import br.com.sgpr.teste.business.service.interfaces.PassValidatorCreateStrategy;
 import br.com.sgpr.teste.business.service.interfaces.PrazoStrategy;
 import br.com.sgpr.teste.data.PassagensViagemsRepository;
 import br.com.sgpr.teste.data.TempPassagemRepository;
@@ -34,6 +36,10 @@ public class PassagemService {
     private CheckInStrategy checkInValidator;
     @Autowired
     private AfterCheckInStrategy afterCheckIn;
+    @Autowired
+    private AfterCreateStrategy afterCreate;
+    @Autowired
+    private PassValidatorCreateStrategy passValidator;
     
 
     public Iterable<VisaoPassagens> getPassagensViagem(String viagemId){
@@ -42,6 +48,20 @@ public class PassagemService {
 
     public Iterable<VisaoPassagens> getUserPass(String userId) {
         return passagensViagensRepository.getUserPass(userId);
+    }
+    
+    public void criarPassagem(TempPassagem passToCreate) throws Exception{
+    	System.out.println("Criando passagem de id " + passToCreate.getCodValidacao() + " da viagem " +  passToCreate.getViagem());
+        TempPassagem pass = passagemRepository.findById(passToCreate.getCodValidacao()).orElseGet(() -> null);
+        Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
+
+        if(pass == null || viagem.getId() == passToCreate.getViagem()) {
+        	passValidator.validade(pass);
+        	passagemRepository.save(pass);
+            afterCreate.execute(pass);
+        }else{
+            throw new Exception("Não foi possível criar a passagem.");
+        }
     }
 
     public void cancelarPassagem(String passId) throws BusinessExceptions{
