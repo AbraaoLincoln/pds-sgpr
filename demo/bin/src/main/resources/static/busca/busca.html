@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPR-Passagens</title>
+    <link rel="stylesheet" href="./css/buscaPassagensStyle.css">
+    <link rel="stylesheet" href="../all.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/animation.js"></script>
+    <script src="./js/pass.js"></script>
+    <script src="./js/dbOperations.js"></script>
+</head>
+<body>
+    <header>
+        <span onclick="loadHomepageSearch()">SGPR</span>
+        <button type="button" onclick="loadLoginPage()">Entrar</button>
+    </header>
+    <div class="mainContent" id="mainC">
+        <!-- <img src="../imgs/fundo_pesquisa.png" alt=""> -->
+        <img src="../imgs/img1.jpg" alt="" id="bkImg">
+        <div class="backForm" id="bkForms">
+            <div class="formContainer" id="searchMenu">
+                <h1>Pesquisar Viagens</h1>
+                <form action="POST" class="forms">
+                    <input type="text" class="formsInput" placeholder="De" id="origem">
+                    <input type="text" class="formsInput" placeholder="Para" id="destino">
+                    <input type="text" class="formsInput" placeholder="Dia" id="data" disabled>
+                    <input type="text" class="formsInput" placeholder="Hora de Saida" id="hora" disabled>
+                    <input type="text" class="formsInput" placeholder="Preço" id="preco" disabled>
+                </form>
+                <div class="divBtnSearch">
+                    <button type="button" class="btnSearch" onclick="startBusca()">Pesquisar</button>
+                </div>
+            </div>
+        </div>
+        <div class="backTrips" id="bkTrips">
+            <div class="rowSearchResponse">
+
+                <!-- <div class="passContainer">
+                    <div class="empName">
+                        <span>Emp1</span>
+                    </div>
+                    <div class="passInfo">
+                        <div class="passInfoContainer">
+                            <div class="passInfoCol">
+                                <span>Assu</span>
+                                <span>Saida as 00:00</span>
+                                <span>Assentos Disponives: 50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="passPrice">
+                        <span>R$ 20,00</span>
+                        <button type="button" class="btnPass">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="passContainer">
+                    <div class="empName">
+                        <span>Emp1</span>
+                    </div>
+                    <div class="passInfo">
+                        <div class="passInfoContainer">
+                            <div class="passInfoCol">
+                                <span>Mossoro</span>
+                                <span>Saida as 00:00</span>
+                                <span>Assentos Disponives: 15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="passPrice">
+                        <span>R$ 50,00</span>
+                        <button type="button" class="btnPass">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="passContainer">
+                    <div class="empName">
+                        <span>Emp3</span>
+                    </div>
+                    <div class="passInfo">
+                        <div class="passInfoContainer">
+                            <div class="passInfoCol">
+                                <span>Caico</span>
+                                <span>Saida as 00:00</span>
+                                <span>Assentos Disponives: 30</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="passPrice">
+                        <span>R$ 35,00</span>
+                        <button type="button" class="btnPass">Comprar</button>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

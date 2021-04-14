@@ -1,0 +1,305 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body{
+    background-color: #fff;
+    width: 98vw;
+    /* background-color: red; */
+}
+
+header{
+    width: 97vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #256d1b;
+    color: #f7f7f2;
+    padding-left: 1%;
+    padding-right:1%;
+    box-shadow: 1px 1px 3px black;
+    border-bottom: 1px solid #f7f7f2;
+}
+
+header span{
+    font-weight: bold;
+}
+
+header span:hover{
+    cursor: pointer;
+}
+
+header button{
+    border: none;
+    width: 7%;
+    height: 50%;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px black;
+}
+
+header button:hover{
+    cursor: pointer;
+    background-color: #dfdfce;
+}
+
+/* main content */
+.mainContent{
+    width: 100vw;
+    height: 90vh;
+    /* transition: height 1s; */
+}
+
+.mainContent img{
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    position: absolute;
+}
+
+.backForm{
+    height: 100%;
+    width: 98%;
+    position: relative;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    transition: height 1s;
+}
+
+.formContainer{
+    background-color: rgba(37, 109, 27, .9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.formContainer h1{
+    color: #f7f7f2;
+}
+
+.formContainerUp{
+    background-color: rgba(37, 109, 27, .9);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.forms{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.formsUp{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.formsInput{
+    height: 4vh;
+    background-color: #f7f7f2;
+    padding-left: 1%;
+    outline: none;
+    border: 1px solid #CFCFB5;
+    box-shadow: 1px 1px 3px #CFCFB5;
+    border-radius: 3px;
+}
+
+.divBtnSearch{
+    /* background-color: red; */
+    width: 99%;
+}
+
+.btnSearch{
+    width: 19%;
+    height: 150%;
+    margin-left: 81%;
+    /* border: none; */
+}
+
+.divBtnSearch button:hover{
+    cursor: pointer;
+    background-color: #dfdfce;
+    border: none;
+}
+
+.divBtnSearchUp{
+    height: 100%;
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.btnSearchFormsUp{
+    width: 100%;
+    height: 4vh;
+    margin-left: 0;
+    border: none;
+    background-color: #f7f7f2;
+    box-shadow: 1px 1px 3px black;
+    outline: none;
+    border-radius: 3px;
+}
+
+.btnSearchFormsUp:hover{
+    cursor: pointer;
+    background-color: #dfdfce;
+    border: none;
+}
+
+/* part of search response */
+
+.backTrips{
+    width: 98vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rowSearchResponse{
+    width: 98%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1%;
+}
+
+.passContainer{
+    width: 32%;
+    height: 15vh;
+    display: flex;
+    box-shadow: 1px 1px 5px #999999;
+    /* border: 1px solid #CFCFB5; */
+    /* box-shadow: 1px 1px 3px #CFCFB5; */
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* .passContainer:hover{
+    transform: scale(1.1);
+    background-color: #dfdfce;
+} */
+
+.empName{
+    /* background-color: rebeccapurple; */
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passInfo{
+    /* background-color: red; */
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.passInfoContainer{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 80%;
+}
+
+.passInfoCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    white-space: nowrap;
+    /* height: 100%; */
+}
+
+.btnPassContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnPass{
+    height: 25%;
+    width: 90%;
+    border: none;
+    background-color: #f7f7f2;
+    /* box-shadow: 1px 1px 3px black; */
+    border-radius: 3px;
+    white-space: nowrap;
+    color: #f7f7f2;
+    /* font-weight: bolder; */
+    background-color: #0077B6;
+    border: 1px solid #005D8F;
+}
+
+.btnPass:hover{
+    cursor: pointer;
+    background-color: #005D8F;
+}
+
+.passPrice{
+    /* background-color: green; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* cores das empresas */
+
+.emp1{
+    background-color: #442B48;
+    color: #f7f7f2
+}
+
+.emp2{
+    background-color: #39393A;
+    color: #f7f7f2
+}
+
+.emp3{
+    background-color: #488B49;
+    color: #f7f7f2
+}
+
+.emp4{
+    background-color: #941C2F;
+    color: #f7f7f2
+}
+
+.emp5{
+    background-color: #FF6B35;
+    color: #f7f7f2
+}
+
+.divWarginViagem{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divWarginViagem span{
+    font-size: 300%;
+}

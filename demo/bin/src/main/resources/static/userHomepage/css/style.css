@@ -1,0 +1,412 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    height: 10%;
+    width: 100%;
+    background-color: #256d1b;
+    color: #f7f7f2;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+header span {
+    width: 10%;
+    padding-left: 1%;
+}
+
+.backTripsMenu {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tripsMenu {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.userMenu {
+    /* background-color: red; */
+    height: 10vh;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 1%;
+    position: relative;
+}
+
+.backImgUser {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.backImgUser img {
+    width: 50%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+.userMenu nav {
+    top: 10vh;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    box-shadow: 1px 1px 3px #5c5c5c;
+    z-index: 1;
+}
+
+.userMenu nav button {
+    height: 5vh;
+    /* margin-top: 2%; */
+    border: none;
+    /* border-radius: 5px; */
+    background-color: #256d1b;
+    color: white;
+    font-weight: bold;
+    /* box-shadow: 1px 1px 3px #5c5c5c; */
+}
+
+.userMenu nav button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #256d1b;
+}
+
+.userMenu:hover {
+    cursor: pointer;
+}
+
+i:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* main */
+main {
+    width: 100vw;
+    /* background-color: black;
+    color: #f7f7f2; */
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    flex-direction: column;
+}
+
+.listOfPass {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backOfPass {
+    width: 40%;
+    height: 25vh;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px #5c5c5c;
+    background-color: #1d3461;
+}
+
+.empName-pass {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #1d3461;
+    color: white;
+}
+
+.empName-pass span {
+    padding: 1%;
+}
+
+.backPassInfo {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.passRow {
+    width: 100%;
+    display: flex;
+    padding-left: 1%;
+}
+
+.passCol {
+    width: 33%;
+    display: flex;
+    flex-direction: column
+}
+
+.rowCod {
+    justify-content: center;
+}
+
+/* Lista de passagens */
+.backPassList {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listOfPass-row {
+    width: 60%;
+    display: flex;
+    margin-bottom: 1%;
+    box-shadow: 1px 1px 3px #5c5c5c;
+    border-radius: 5px;
+}
+
+.listOfPass-span {
+    width: 20%;
+    height: 7vh;
+    text-align: center;
+}
+
+.listOfPass-divBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listOfPass-divBtn button {
+    width: 80%;
+    height: 60%;
+    border: none;
+    border-radius: 10px;
+    background-color: #941C2F;
+    color: white;
+    box-shadow: 1px 1px 3px #5c5c5c;
+}
+
+.listOfPass-divBtn button:hover {
+    cursor: pointer;
+}
+
+
+/* buscar viagem */
+.backForm{
+    height: 100%;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    align-items: center;
+    transition: height 1s;
+    margin-bottom: 2%;
+}
+
+.formContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.forms{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.formsInput{
+    height: 4vh;
+    background-color: white;
+    padding-left: 1%;
+    outline: none;
+    border: 1px solid #CFCFB5;
+    box-shadow: 1px 1px 3px #CFCFB5;
+    border-radius: 3px;
+}
+
+.divBtnSearch{
+    /* background-color: red; */
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btnSearch{
+    width: 80%;
+    height: 5vh;
+    border: none;
+    box-shadow: 1px 1px 3px #5c5c5c;
+    border-radius: 10px;
+    outline: none;
+}
+
+.divBtnSearch button:hover{
+    cursor: pointer;
+    background-color: #dfdfce;
+    border: none;
+}
+
+/* part of search response */
+
+.backTrips{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rowSearchResponse{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1%;
+}
+
+.passContainer{
+    width: 32%;
+    height: 15vh;
+    display: flex;
+    box-shadow: 1px 1px 5px #999999;
+    /* border: 1px solid #CFCFB5; */
+    /* box-shadow: 1px 1px 3px #CFCFB5; */
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* .passContainer:hover{
+    transform: scale(1.1);
+    background-color: #dfdfce;
+} */
+
+.empName{
+    /* background-color: rebeccapurple; */
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passInfo{
+    /* background-color: red; */
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.passInfoContainer{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 80%;
+}
+
+.passInfoCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    white-space: nowrap;
+    /* height: 100%; */
+}
+
+.btnPassContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnPass{
+    height: 25%;
+    width: 90%;
+    border: none;
+    background-color: #f7f7f2;
+    /* box-shadow: 1px 1px 3px black; */
+    border-radius: 3px;
+    white-space: nowrap;
+    color: #f7f7f2;
+    /* font-weight: bolder; */
+    background-color: #0077B6;
+    border: 1px solid #005D8F;
+}
+
+.btnPass:hover{
+    cursor: pointer;
+    background-color: #005D8F;
+}
+
+.passPrice{
+    /* background-color: green; */
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* cores das empresas */
+
+.emp1{
+    background-color: #442B48;
+    color: #f7f7f2
+}
+
+.emp2{
+    background-color: #39393A;
+    color: #f7f7f2
+}
+
+.emp3{
+    background-color: #488B49;
+    color: #f7f7f2
+}
+
+.emp4{
+    background-color: #941C2F;
+    color: #f7f7f2
+}
+
+.emp5{
+    background-color: #FF6B35;
+    color: #f7f7f2
+}
+
+.divWarginViagem{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divWarginViagem span{
+    font-size: 300%;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPR-Validate</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../all.css">
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <div class="back-backForms" id="bkForms">
+        <div class="backForms">
+            <h2>SGPR-Validate</h2>
+            <form action="POST">
+                <input type="text" id="cpfMoto" placeholder="cpf motorista" value="29306192100">
+                <input type="password" placeholder="senha">
+                <button type="button" class="btnLogin" onclick="login()">Entrar</button>
+            </form>
+            <button type="button" class="btnLogin btnJoin">Esqueci minha senha</button>
+        </div>
+    </div>
+
+    <div class="backList" id="bkList">
+        <!-- <div class="header-list"></div>
+        <div class="backViagem">
+            <h3>Viagem</h3>
+            <div class="row-viagem">
+                <div class="col-viagem">
+                    <span>Origem: Natal</span>
+                    <span>Destino: Assu</span>
+                </div>
+                <div class="col-viagem">
+                    <span>Data: 2021-03-18</span>
+                    <span>Hora Saida: 18:00</span>
+                </div>
+            </div>
+            <div class="row-viagem">
+                <button type="button" class="col-viagem">Confirmar</button>
+                <button type="button" class="col-viagem">Cancelar</button>
+            </div>
+        </div>  -->
+    </div>
+
+    <div class="backImgValidate" id="bkImgValidate">
+        <div class="header-list">
+            <i class="fas fa-arrow-left" onclick="returnLastPage()"></i>
+            <span id="spanValidateViagem">Viagem-0</span>
+            <i class="fas fa-bars"></i>
+        </div>
+        <input type="text" placeholder="insira aqui o código de validação" id="passCod">
+        <img src="../imgs/qr_code.png" alt="imagem da camera">
+        <button type="button" class="btn-validate" onclick="validatePass()"> Validar </button>
+    </div>
+</body>
+</html>
