@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="./css/styleAdmin.css">
+    <link rel="stylesheet" href="../all.css">
+    <script src="./js/main.js"></script>
+    <script src="./js/table.js"></script>
+    <script src="./js/forms.js"></script>
+    <script src="./js/dbOperations.js"></script>
+    <script src="./js/fakeApi.js"></script>
+</head>
+<body>
+    <header>
+        <!-- <span>SGPR</span> -->
+        <div class="searchAndAdd">
+            <span onclick="hideSearchAndAdd()">SGPR</span>
+            <div class="divSearchAddTop" id="searchDiv">
+                <div class="search">
+                    <input type="text" name="search" id="termToSearchUp">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button type="button" onclick="showAddForm()">Adicionar</button>
+            </div>
+        </div>
+        <button type="button" onclick="loadLoginPage()">Sair</button>
+    </header>
+    <div class="backIconsAndMainContent">
+        <div class="iconsMenu">
+            <i class="fas fa-users fa-2x" title="usuarios" onclick="createTableUsers()"></i>
+            <i class="fas fa-map fa-2x" title="viagens" onclick="createTableViagem()"></i>
+            <i class="fas fa-route fa-2x" title="rotas" onclick="createTableRota()"></i>
+            <i class="fas fa-dharmachakra fa-2x" title="motoristas" onclick="createTableMotorista()"></i>
+            <i class="fas fa-bus fa-2x" title="onibus" onclick="createTableBus()"></i>
+            <i class="fas fa-city fa-2x" title="cidades" onclick="createTableCid()"></i>
+        </div>
+        <div class="mainContent" id="main">
+            <div class="divSearchAdd">
+                <div class="search">
+                    <input type="text" name="search" id="termToSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button type="button" class="btn">Adicionar</button>
+            </div>
+            <table class="tableMainContent" id="tableMainContent" cellspacing="0">
+    
+            </table>
+            <span id="warnig1">
+                Ops, nenhuma opção selecionada!
+            </span>
+        </div>
+    </div>
+    <div class="backForms" id="divForms">
+        <form action="POST" class="forms" id="mainForm">
+        </form>
+    </div>
+</body>
+</html>
