@@ -41,9 +41,9 @@ select id_viagem, cpf_dono, data_viagem, hora_saida, rota, onibus, hora_saida, n
 from viagem as v, passagem as p 
 where v.id_viagem = p.viagem;
 
-select * from passagensUser;
+update viagem set data_viagem = '2021-04-13' where id_viagem = 2;
 
-update viagem set data_viagem = '2021-03-15' where id_viagem = 1;
+update viagem set hora_saida = '15:00' where id_viagem = 2;
 
 update viagem set assentos_disponiveis = 19 where id_viagem = 1;
 
@@ -51,10 +51,13 @@ insert into passagem values('1', 1, 5, '40811470784');
 
 insert into passagem values('2', 2, 5, '40811470784');
 
-select * from passagem where cod_validacao = '2';
+select * from passagem where cod_validacao = '8';
 
 select * from passagem_usadas;
 
 select * from motorista;
 
 select * from viagens_simples;
+
+insert into passagem  values('7', 1, 5, '40811470784'),
+('8',2, 5, '40811470784'), ('9',3, 10, '40811470784'), ('10',4, 5, '40811470784');

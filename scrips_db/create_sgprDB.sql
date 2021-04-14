@@ -135,9 +135,10 @@ create table passagem(
 
 create table passagem_usadas(
 	cod_validacao varchar(45),
-    viagem int not null,
-    num_assento int not null,
-    cpf_dono varchar(11) not null,
+    viagem int,
+    num_assento int,
+    cpf_dono varchar(11),
+    hora_cancelamento char(5),
     
     primary key(cod_validacao),
     

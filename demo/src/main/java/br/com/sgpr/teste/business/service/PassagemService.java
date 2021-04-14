@@ -81,7 +81,7 @@ public class PassagemService {
         if(pass == null || viagem.getId() != passToValidate.getViagem()) {
             throw new Exception("Passagem Inválida");
         }else{
-            checkInValidator.validade(pass);
+            checkInValidator.validate(pass);
             passagemRepository.deleteById(passToValidate.getCodValidacao());
             afterCheckIn.execute(pass);
         }

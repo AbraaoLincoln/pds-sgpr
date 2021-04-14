@@ -18,7 +18,7 @@ public class CheckInAviao implements CheckInStrategy{
     private ViagemRepository viagemRepository;
     
     @Override
-    public void validade(TempPassagem pass) throws BusinessExceptions {
+    public void validate(TempPassagem pass) throws BusinessExceptions {
         Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
         LocalTime viagemTime = LocalTime.parse(viagem.getHoraSaida());
         LocalTime timeNow = LocalTime.now();

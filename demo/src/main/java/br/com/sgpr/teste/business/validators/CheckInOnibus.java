@@ -18,7 +18,7 @@ public class CheckInOnibus implements CheckInStrategy{
     private ViagemRepository viagemRepository;
 
     @Override
-    public void validade(TempPassagem pass) throws BusinessExceptions{
+    public void validate(TempPassagem pass) throws BusinessExceptions{
         Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
         LocalDate viagemDate = LocalDate.parse(viagem.getData());
         LocalDate today = LocalDate.now();
