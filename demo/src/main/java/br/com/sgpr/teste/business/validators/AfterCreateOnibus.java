@@ -8,7 +8,7 @@ import br.com.sgpr.teste.business.entity.Viagem;
 import br.com.sgpr.teste.business.service.interfaces.AfterCreateStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-@Component
+// @Component
 public class AfterCreateOnibus implements AfterCreateStrategy{
 	@Autowired
     private ViagemRepository viagemRepository;

@@ -1,7 +1,10 @@
 package br.com.sgpr.teste.business.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +16,7 @@ import br.com.sgpr.teste.business.service.interfaces.AfterCancelStrategy;
 import br.com.sgpr.teste.business.service.interfaces.AfterCheckInStrategy;
 import br.com.sgpr.teste.business.service.interfaces.AfterCreateStrategy;
 import br.com.sgpr.teste.business.service.interfaces.CheckInStrategy;
-import br.com.sgpr.teste.business.service.interfaces.PassValidatorCreateStrategy;
+import br.com.sgpr.teste.business.service.interfaces.PassValidateStrategy;
 import br.com.sgpr.teste.business.service.interfaces.PrazoStrategy;
 import br.com.sgpr.teste.data.PassagensViagemsRepository;
 import br.com.sgpr.teste.data.TempPassagemRepository;
@@ -21,6 +24,7 @@ import br.com.sgpr.teste.data.ViagemRepository;
 
 @Service
 public class PassagemService {
+    private static final Logger logger = LoggerFactory.getLogger(PassagemService.class);
     @Autowired
     private PassagensViagemsRepository passagensViagensRepository;
     @Autowired
@@ -36,10 +40,10 @@ public class PassagemService {
     private CheckInStrategy checkInValidator;
     @Autowired
     private AfterCheckInStrategy afterCheckIn;
+    // @Autowired
+    // private AfterCreateStrategy afterCreate;
     @Autowired
-    private AfterCreateStrategy afterCreate;
-    @Autowired
-    private PassValidatorCreateStrategy passValidator;
+    private PassValidateStrategy passValidator;
     
 
     public Iterable<VisaoPassagens> getPassagensViagem(String viagemId){
@@ -51,14 +55,13 @@ public class PassagemService {
     }
     
     public void criarPassagem(TempPassagem passToCreate) throws Exception{
-    	System.out.println("Criando passagem de id " + passToCreate.getCodValidacao() + " da viagem " +  passToCreate.getViagem());
-        TempPassagem pass = passagemRepository.findById(passToCreate.getCodValidacao()).orElseGet(() -> null);
-        Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
+    	logger.info("Criando nova passagem para a viagem " +  passToCreate.getViagem() + "...");
+        Optional<Viagem> viagem = viagemRepository.findById(passToCreate.getViagem());
 
-        if(pass == null || viagem.getId() == passToCreate.getViagem()) {
-        	passValidator.validade(pass);
-        	passagemRepository.save(pass);
-            afterCreate.execute(pass);
+        if(viagem.isPresent()) {
+        	passValidator.validade(passToCreate);
+        	passagemRepository.save(passToCreate);
+            // afterCreate.execute(pass);
         }else{
             throw new Exception("Não foi possível criar a passagem.");
         }

@@ -81,7 +81,7 @@ GET http://localhost:8080/passagens/40811470784
 
 ###
 
-DELETE http://localhost:8080/passagens/4
+DELETE http://localhost:8080/passagens/2
 
 ###
 
@@ -90,8 +90,18 @@ Content-Type: application/json
 
 {
     "viagem": "2",
-    "codValidacao": "3"
+    "codValidacao": "2"
 }
 ###
 
 GET http://localhost:8080/viagem/motorista/29306192100
+
+###
+POST http://localhost:8080/passagens
+Content-Type: application/json
+
+{
+    "viagem": 2,
+    "numAssento": 10,
+    "cpf": "40811470784"
+}

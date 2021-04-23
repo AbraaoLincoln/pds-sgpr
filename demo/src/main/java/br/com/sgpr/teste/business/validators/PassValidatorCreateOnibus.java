@@ -10,12 +10,12 @@ import br.com.sgpr.teste.business.entity.TempPassagem;
 import br.com.sgpr.teste.business.entity.Viagem;
 import br.com.sgpr.teste.business.entity.visoes.VisaoPassagens;
 import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
-import br.com.sgpr.teste.business.service.interfaces.PassValidatorCreateStrategy;
+import br.com.sgpr.teste.business.service.interfaces.PassValidateStrategy;
 import br.com.sgpr.teste.data.PassagensViagemsRepository;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-@Component
-public class PassValidatorCreateOnibus implements PassValidatorCreateStrategy{
+// @Component
+public class PassValidatorCreateOnibus implements PassValidateStrategy{
 	@Autowired
     private ViagemRepository viagemRepository;
 	@Autowired
