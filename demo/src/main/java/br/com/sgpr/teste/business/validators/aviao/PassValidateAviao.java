@@ -12,7 +12,7 @@ import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
 import br.com.sgpr.teste.business.service.interfaces.PassValidateStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-// @Component
+@Component
 public class PassValidateAviao implements PassValidateStrategy{
     @Autowired
     private ViagemRepository viagemRepository;

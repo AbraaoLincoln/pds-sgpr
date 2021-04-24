@@ -14,7 +14,7 @@ import br.com.sgpr.teste.business.service.interfaces.PassValidateStrategy;
 import br.com.sgpr.teste.data.PassagensViagemsRepository;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-@Component
+// @Component
 public class PassValidatorCreateOnibus implements PassValidateStrategy{
 	@Autowired
     private ViagemRepository viagemRepository;
