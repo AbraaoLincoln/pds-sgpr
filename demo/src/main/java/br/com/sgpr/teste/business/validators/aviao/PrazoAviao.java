@@ -22,9 +22,9 @@ public class PrazoAviao implements PrazoStrategy{
         Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
         LocalDate viagemDate = LocalDate.parse(viagem.getData());
         LocalDate today = LocalDate.now();
+        String msgForaDoPrazo = "A passagem não pode ser cancelada, o prazo é de 3 dias antes da saida do voo.";
 
         if(today.isBefore(viagemDate)) {
-            String msgForaDoPrazo = "A passagem não pode ser cancelar menos de 3 dias para a viagem.";
             LocalDate ThreeDaysBeforeViagemDate = viagemDate.minusDays(3);
 
             if(today.isEqual(ThreeDaysBeforeViagemDate)) {
@@ -35,7 +35,7 @@ public class PrazoAviao implements PrazoStrategy{
 
             }else if(!today.isBefore(ThreeDaysBeforeViagemDate)) throw new BusinessExceptions(msgForaDoPrazo);
         }else {
-            throw new BusinessExceptions("A passagem não pode ser cancela");
+            throw new BusinessExceptions(msgForaDoPrazo);
         }
     }
     

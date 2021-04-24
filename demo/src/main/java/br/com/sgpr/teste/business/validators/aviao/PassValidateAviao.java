@@ -31,8 +31,6 @@ public class PassValidateAviao implements PassValidateStrategy{
         }else if(today.isAfter(viagemDate)) {
             throw new BusinessExceptions("A passagem não pode ser criada, pois a viagem já aconteceu");
         }
-        
-        
     }
 
     private boolean isAtLeast3hoursBeforeViagemTime(LocalTime timeNow, LocalTime viagemTime) {

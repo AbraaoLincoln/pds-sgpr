@@ -2,8 +2,6 @@ package br.com.sgpr.teste.business.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,7 +14,6 @@ public class TempPassagem {
     private String cpf;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_validacao")
     public String getCodValidacao(){
         return codValidacao;
