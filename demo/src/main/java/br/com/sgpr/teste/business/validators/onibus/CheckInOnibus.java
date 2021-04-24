@@ -1,7 +1,6 @@
-package br.com.sgpr.teste.business.validators;
+package br.com.sgpr.teste.business.validators.onibus;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package br.com.sgpr.teste.business.validators;
+package br.com.sgpr.teste.business.validators.onibus;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ import br.com.sgpr.teste.business.entity.Viagem;
 import br.com.sgpr.teste.business.service.interfaces.AfterCreateStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-// @Component
+@Component
 public class AfterCreateOnibus implements AfterCreateStrategy{
 	@Autowired
     private ViagemRepository viagemRepository;

@@ -1,4 +1,4 @@
-package br.com.sgpr.teste.business.validators;
+package br.com.sgpr.teste.business.validators.aviao;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,7 +12,7 @@ import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
 import br.com.sgpr.teste.business.service.interfaces.PassValidateStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-@Component
+// @Component
 public class PassValidateAviao implements PassValidateStrategy{
     @Autowired
     private ViagemRepository viagemRepository;
@@ -29,7 +29,7 @@ public class PassValidateAviao implements PassValidateStrategy{
 
             if(!isAtLeast3hoursBeforeViagemTime(timeNow, viagemTime)) throw new BusinessExceptions("A passagem só pode ser comprada em até 3 horas antes do voo.");
         }else if(today.isAfter(viagemDate)) {
-            throw new BusinessExceptions("A passagem não pode criada, pois a viagem já aconteceu");
+            throw new BusinessExceptions("A passagem não pode ser criada, pois a viagem já aconteceu");
         }
         
         

@@ -1,4 +1,4 @@
-package br.com.sgpr.teste.business.validators;
+package br.com.sgpr.teste.business.validators.onibus;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

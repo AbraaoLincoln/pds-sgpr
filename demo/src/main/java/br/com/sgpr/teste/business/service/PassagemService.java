@@ -40,8 +40,8 @@ public class PassagemService {
     private CheckInStrategy checkInValidator;
     @Autowired
     private AfterCheckInStrategy afterCheckIn;
-    // @Autowired
-    // private AfterCreateStrategy afterCreate;
+    @Autowired
+    private AfterCreateStrategy afterCreate;
     @Autowired
     private PassValidateStrategy passValidator;
     
@@ -61,7 +61,7 @@ public class PassagemService {
         if(viagem.isPresent()) {
         	passValidator.validade(passToCreate);
         	passagemRepository.save(passToCreate);
-            // afterCreate.execute(pass);
+            afterCreate.execute(passToCreate);
         }else{
             throw new Exception("Não foi possível criar a passagem.");
         }
