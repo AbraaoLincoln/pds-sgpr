@@ -56,15 +56,21 @@ public class PassagemService {
     
     public void criarPassagem(TempPassagem passToCreate) throws Exception{
     	logger.info("Criando nova passagem para a viagem " +  passToCreate.getViagem() + "...");
-        Optional<Viagem> viagem = viagemRepository.findById(passToCreate.getViagem());
+        Viagem viagem = viagemRepository.findById(passToCreate.getViagem()).orElseGet(() -> null);
 
-        if(viagem.isPresent()) {
-        	passValidator.validade(passToCreate);
-        	passagemRepository.save(passToCreate);
+        if(viagem != null) {
+            passValidator.validade(passToCreate);
+            passToCreate.setCodValidacao(generateCodValidacao(passToCreate));
+            passagemRepository.save(passToCreate);
+            viagemRepository.updateAssentosDisponiveis(viagem.getId(), viagem.getAsssentosDisponiveis() - 1);
             afterCreate.execute(passToCreate);
         }else{
             throw new Exception("Não foi possível criar a passagem.");
         }
+    }
+
+    private String generateCodValidacao(TempPassagem pass) {
+        return pass.getCpf() + pass.getNumAssento();
     }
 
     public void cancelarPassagem(String passId) throws BusinessExceptions{

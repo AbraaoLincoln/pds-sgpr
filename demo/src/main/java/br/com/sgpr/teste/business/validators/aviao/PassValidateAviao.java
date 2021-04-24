@@ -12,7 +12,7 @@ import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
 import br.com.sgpr.teste.business.service.interfaces.PassValidateStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-// @Component
+@Component
 public class PassValidateAviao implements PassValidateStrategy{
     @Autowired
     private ViagemRepository viagemRepository;
@@ -31,8 +31,6 @@ public class PassValidateAviao implements PassValidateStrategy{
         }else if(today.isAfter(viagemDate)) {
             throw new BusinessExceptions("A passagem não pode ser criada, pois a viagem já aconteceu");
         }
-        
-        
     }
 
     private boolean isAtLeast3hoursBeforeViagemTime(LocalTime timeNow, LocalTime viagemTime) {

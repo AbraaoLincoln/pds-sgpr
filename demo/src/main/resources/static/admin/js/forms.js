@@ -28,7 +28,7 @@ function showAddForm(){
             break;
         case 41:
             let atrPass = Object.keys(globalResouces.dependence[0]);
-            createAddForm(atrPass.slice(0, atrPass.length-1), 'Passagem');
+            createAddForm(atrPass.slice(2, atrPass.length-1), 'Passagem');
             break;
         case 5:
             createAddForm(Object.keys(globalResouces.main[0]), 'Motorista');

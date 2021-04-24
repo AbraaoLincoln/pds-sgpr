@@ -13,7 +13,7 @@ import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
 import br.com.sgpr.teste.business.service.interfaces.PrazoStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-@Component
+// @Component
 public class PrazoOnibus implements PrazoStrategy{
     @Autowired
     private ViagemRepository viagemRepository;

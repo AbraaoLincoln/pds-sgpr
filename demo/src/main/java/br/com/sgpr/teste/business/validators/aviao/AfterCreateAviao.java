@@ -9,7 +9,7 @@ import br.com.sgpr.teste.business.service.interfaces.AfterCreateStrategy;
 import br.com.sgpr.teste.business.util.EmailSender;
 import br.com.sgpr.teste.data.PassageiroRepository;
 
-// @Component
+@Component
 public class AfterCreateAviao implements AfterCreateStrategy{
     @Autowired
     private PassageiroRepository passageiroRepository;

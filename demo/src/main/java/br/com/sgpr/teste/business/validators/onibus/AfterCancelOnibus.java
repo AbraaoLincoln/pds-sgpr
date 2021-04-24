@@ -8,7 +8,7 @@ import br.com.sgpr.teste.business.entity.TempPassagem;
 import br.com.sgpr.teste.business.service.interfaces.AfterCancelStrategy;
 import br.com.sgpr.teste.data.PassagemUsadaRepository;
 
-@Component
+// @Component
 public class AfterCancelOnibus implements AfterCancelStrategy{
     @Autowired
     private PassagemUsadaRepository passagemUsadaRepository;
