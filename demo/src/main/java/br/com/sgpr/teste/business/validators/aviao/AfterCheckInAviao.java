@@ -8,7 +8,7 @@ import br.com.sgpr.teste.business.entity.TempPassagem;
 import br.com.sgpr.teste.business.service.interfaces.AfterCheckInStrategy;
 import br.com.sgpr.teste.data.PassagemUsadaRepository;
 
-@Component
+//@Component
 public class AfterCheckInAviao implements AfterCheckInStrategy{
     @Autowired
     private PassagemUsadaRepository passagemUsadaRepository;
