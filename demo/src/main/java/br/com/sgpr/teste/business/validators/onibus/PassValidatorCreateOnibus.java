@@ -22,7 +22,7 @@ public class PassValidatorCreateOnibus implements PassValidateStrategy{
 	private PassagensViagemsRepository passagensViagemRepository;
 	
 	@Override
-	public void validade(TempPassagem pass) throws BusinessExceptions {
+	public void validate(TempPassagem pass) throws BusinessExceptions {
 		Viagem viagem = viagemRepository.findById(pass.getViagem()).orElseGet(() -> null);
         LocalDate viagemDate = LocalDate.parse(viagem.getData());
         LocalDate today = LocalDate.now();

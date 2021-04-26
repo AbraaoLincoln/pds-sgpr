@@ -148,9 +148,24 @@ async function addResource(event){
                 alert(res.erros);
             }
             break;
+        case 41:
+            let obj = buildJSO(event.target.parentNode.id);
+            obj["viagem"] = getViagemIdFromMainTable();
+            await postResource('http://localhost:8080/passagens', obj);
+            break;
         case 6:
             await postResource('http://localhost:8080/cidades', buildJSO(event.target.parentNode.id));
             break;
+    }
+}
+
+function getViagemIdFromMainTable() {
+    let mainTable = document.getElementById("tableMainContent");
+
+    for(let viagem of mainTable.children) {
+        if(viagem.style.display != "none" && viagem.children[0].innerText != "id") {
+            return viagem.children[0].innerText;
+        }
     }
 }
 

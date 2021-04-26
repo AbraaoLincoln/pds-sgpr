@@ -12,7 +12,7 @@ import br.com.sgpr.teste.business.exceptions.BusinessExceptions;
 import br.com.sgpr.teste.business.service.interfaces.CheckInStrategy;
 import br.com.sgpr.teste.data.ViagemRepository;
 
-@Component
+//@Component
 public class CheckInAviao implements CheckInStrategy{
     @Autowired
     private ViagemRepository viagemRepository;

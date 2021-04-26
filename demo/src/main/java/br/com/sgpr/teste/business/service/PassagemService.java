@@ -59,7 +59,7 @@ public class PassagemService {
         Viagem viagem = viagemRepository.findById(passToCreate.getViagem()).orElseGet(() -> null);
 
         if(viagem != null) {
-            passValidator.validade(passToCreate);
+            passValidator.validate(passToCreate);
             passToCreate.setCodValidacao(generateCodValidacao(passToCreate));
             passagemRepository.save(passToCreate);
             viagemRepository.updateAssentosDisponiveis(viagem.getId(), viagem.getAsssentosDisponiveis() - 1);
@@ -91,14 +91,13 @@ public class PassagemService {
         }
     }
     
-    private void deletePassagemOnDB(String passId, int viagemOfPassagemToDeleteId){
+    private void deletePassagemOnDB(String passId, int viagemOfPassagemToDeleteId) throws BusinessExceptions{
         Viagem viagem = viagemRepository.findById(viagemOfPassagemToDeleteId).orElseGet(() -> null);
         if(viagem.getAsssentosDisponiveis() > 0) {
             passagemRepository.deleteById(passId);
             viagemRepository.updateAssentosDisponiveis(viagem.getId(), viagem.getAsssentosDisponiveis() + 1);
         }else {
-            //to do, criar exeção para esse caso.
-            System.out.println("Viagem não tem passagens");
+        	throw new BusinessExceptions("Não existem passagens a serem canceladas para essa viagem"); 
         }
     }
 
