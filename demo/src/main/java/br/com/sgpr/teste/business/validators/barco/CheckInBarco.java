@@ -27,7 +27,8 @@ public class CheckInBarco implements CheckInStrategy{
 	        
 	        if(!today.isEqual(viagemDate)) throw new BusinessExceptions("A passagem só pode ser validada no dia da viagem.");
 
-	        if(today.isEqual(viagemDate) || !isOneHourAndHalfBeforeOrLess(timeNow, viagemTime)) throw new BusinessExceptions("A passagem só pode ser validada no máximo com 1:30h (uma hora e meia) até a hora da viagem");		
+	        if(today.isEqual(viagemDate) || !isOneHourAndHalfBeforeOrLess(timeNow, viagemTime)) 
+	        	throw new BusinessExceptions("A passagem só pode ser validada no máximo com 1:30h (uma hora e meia) até a hora da viagem");		
 	}
 	
 	private boolean isOneHourAndHalfBeforeOrLess(LocalTime startTime, LocalTime finalTime) {

@@ -8,7 +8,6 @@ import br.com.sgpr.teste.business.entity.TempPassagem;
 import br.com.sgpr.teste.business.service.interfaces.AfterCreateStrategy;
 import br.com.sgpr.teste.business.util.SMSSender;
 import br.com.sgpr.teste.data.PassageiroRepository;
-import br.com.sgpr.teste.data.ViagemRepository;
 
 @Component
 public class AfterCreateBarco implements AfterCreateStrategy{
@@ -21,8 +20,8 @@ public class AfterCreateBarco implements AfterCreateStrategy{
 	public void execute(TempPassagem pass) throws Exception {		
 		Passageiro passageiro = passageiroRepository.findById(pass.getCpf()).orElseGet(() -> null);    
         
-        if(passageiro == null || passageiro.getEmail() == null) {
-            throw new Exception("Passageiro não cadastrado ou email invalido");
+        if(passageiro == null || passageiro.getTelefone() == null) {
+            throw new Exception("Passageiro não cadastrado ou telefone invalido");
         }else {
         	smsSender.setPhoneNumber(passageiro.getTelefone());
         	smsSender.setMessage("Ola " + passageiro.getNome() + " sua passagem foi gerada com sucesso");

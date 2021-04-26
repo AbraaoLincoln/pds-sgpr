@@ -1,7 +1,6 @@
 package br.com.sgpr.teste.business.service;
 
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.ArrayList;	
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
